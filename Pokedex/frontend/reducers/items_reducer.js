@@ -1,13 +1,14 @@
 import { RECEIVE_ALL_POKEMON, RECEIVE_POKE } from '../actions/pokemon_actions'
 
-function pokemonReducer(state={}, action) {
+function itemsReducer(state = {}, action) {
     Object.freeze(state)
     const newState = Object.assign({}, state)
     switch (action.type) {
-        case RECEIVE_ALL_POKEMON:
-            return action.pokemon 
         case RECEIVE_POKE:
-            newState[action.payload.pokemon.id] = action.payload.pokemon;
+            //currently overwriting 
+            Object.values(action.payload.items).forEach( item => {
+                newState[item.id] = item
+            })
             return newState
         default:
             return state
@@ -16,4 +17,4 @@ function pokemonReducer(state={}, action) {
 
 
 
-export default pokemonReducer;
+export default itemsReducer;
