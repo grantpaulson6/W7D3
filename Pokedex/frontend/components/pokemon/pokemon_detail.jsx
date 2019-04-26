@@ -18,8 +18,8 @@ class PokemonDetail extends React.Component {
     }
 
     render() {
-        if (this.props.pokemon.items) {
-            const items = this.props.items.map( item => <li>{item.name}</li> )
+        if (this.props.pokemon) {
+            const items = this.props.items.map( item => <li key={item.id}>{item.name}</li> )
             return (
             <div>
                 <h1>{this.props.pokemon.name}</h1>
@@ -28,9 +28,9 @@ class PokemonDetail extends React.Component {
                     <li>{this.props.pokemon.poke_type}</li>
                     <li>{this.props.pokemon.attack}</li>
                     <li>{this.props.pokemon.defense}</li>
-                    <ul>
-                        {items}
-                    </ul>
+                </ul>
+                <ul>
+                    {items}
                 </ul>
     
                 

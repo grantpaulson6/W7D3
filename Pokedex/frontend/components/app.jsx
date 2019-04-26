@@ -7,7 +7,7 @@ import PokemonDetailContainer from './pokemon/pokemon_detail_container';
 const App = () => (
     <div>
         <h1>THIS IS APP</h1>
-        <Route path="/" component={PokemonIndexContainer}/>
+        <Route path="/" component={PokemonIndexContainer} className="index"/>
     </div>
 )
 

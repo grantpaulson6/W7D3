@@ -12,6 +12,13 @@ export const fetchPokemon = (pokemon_id) => (
         url: `/api/pokemons/${pokemon_id}`
     })
 )
-window.fetchPokemon = fetchPokemon;
 
-window.fetchAllPokemon = fetchAllPokemon
+export const createPokemon = (pokemon) => (
+    $.ajax({
+        method: 'POST',
+        url: '/api/pokemons',
+        data: {
+            pokemon
+        }
+    })
+)

@@ -1,5 +1,4 @@
-import { fetchAllPokemon, fetchPokemon } from '../util/api_util'
-
+import { fetchAllPokemon, fetchPokemon, createPokemon } from '../util/api_util'
 export const RECEIVE_ALL_POKEMON = "RECEIVE_ALL_POKEMON";
 export const RECEIVE_POKE = "RECEIVE_POKE";
 
@@ -23,10 +22,8 @@ export const requestPoke = (pokemon_id) => (dispatch) => (
     .then(poke => dispatch(receivePokemon(poke)))
 )
 
-window.requestPoke = requestPoke;
 
-
-
-
-window.receiveAllPokemon = receiveAllPokemon
-window.requestAllPokemon = requestAllPokemon
+export const birthPokemon = (pokemon) => dispatch => (
+    createPokemon(pokemon)
+    .then(poke => dispatch(receivePokemon(poke)))
+)
